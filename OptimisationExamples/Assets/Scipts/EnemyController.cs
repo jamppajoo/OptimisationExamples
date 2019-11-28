@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float moveSpeed = 1;
+    public ScoreManager scoreManager;
+    private GameObject player;
+
+    private void Awake()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        gameObject.transform.position =  Vector3.MoveTowards(gameObject.transform.position, player.transform.position,moveSpeed* Time.deltaTime);
     }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        //How to do this
+        scoreManager = GameObject.Find("ScoreManagerText").GetComponent<ScoreManager>();
+        scoreManager.AddScore(10);
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.transform.tag == "Bullet")
+        {
+            Die();
+        }
+    }
+
 }
+

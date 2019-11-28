@@ -12,13 +12,13 @@ public class GunController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(0))
         {
             for (int i = 0; i < bulletAmountEachFrame; i++)
             {
                 Shoot();
-            }
             //ShootAndDestroy();
+            }
         }
     }
     private void Shoot()

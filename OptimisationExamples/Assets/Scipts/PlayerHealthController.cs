@@ -23,6 +23,7 @@ public class PlayerHealthController : MonoBehaviour
     }
 
     #region HealthReduce2.0
+    //Update slider value only when something happens, we dont care otherwise
     private void Start()
     {
         healthSlider.value = currentHealth;   

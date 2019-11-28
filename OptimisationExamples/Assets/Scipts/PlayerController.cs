@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 movementDirection = Vector3.zero;
     private Rigidbody myRB;
+    
 
 
     private void Awake()

@@ -29,7 +29,7 @@ public class GunController2 : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetMouseButton(0))
         {
             for (int i = 0; i < bulletAmountEachFrame; i++)
             {
