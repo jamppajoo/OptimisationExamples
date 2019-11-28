@@ -9,6 +9,7 @@ public class Presentation : MonoBehaviour
     //GunController
     //Object material settings
     //GunController2.0
-    //Enemyspawner getting player
+    //EnemySpawner coloring
+    //EnemySpawner getting player
     //EnemyController adding score
 }

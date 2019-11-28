@@ -21,8 +21,12 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        //How to do this
+        //How to do this better if instancing object
         scoreManager = GameObject.Find("ScoreManagerText").GetComponent<ScoreManager>();
+
+        #region Kindof better way
+        //ScoreManager.Instance.AddScore(10);
+        #endregion
         scoreManager.AddScore(10);
 
     }

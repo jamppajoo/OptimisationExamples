@@ -20,6 +20,8 @@ public class PlayerHealthController : MonoBehaviour
     private void Update()
     {
         healthSlider.value = currentHealth;
+        if (currentHealth <= 0)
+            levelManager.EndGame();
     }
 
     #region HealthReduce2.0

@@ -17,7 +17,7 @@ public class GunController : MonoBehaviour
             for (int i = 0; i < bulletAmountEachFrame; i++)
             {
                 Shoot();
-            //ShootAndDestroy();
+                //ShootAndDestroy();
             }
         }
     }

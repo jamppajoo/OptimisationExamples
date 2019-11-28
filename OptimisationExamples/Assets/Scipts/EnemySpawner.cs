@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public float maxEnemyMoveSpeed;
 
     public float spawnTimeMin, spawnTimeMax;
 
@@ -29,6 +30,26 @@ public class EnemySpawner : MonoBehaviour
         enemyCount++;
         spawnTime = Random.Range(spawnTimeMin, spawnTimeMax);
         GameObject enemy = Instantiate(enemyPrefab, position, Quaternion.identity);
-        enemy.GetComponent<EnemyController>().moveSpeed = (1 + enemyCount / 10);
+        float moveSpeed = (1 + enemyCount / 10);
+        if (moveSpeed >= maxEnemyMoveSpeed)
+            moveSpeed = maxEnemyMoveSpeed;
+        enemy.GetComponent<EnemyController>().moveSpeed = moveSpeed;
+
+        enemy.GetComponent<Renderer>().material.color = Color.red;
+        #region Coloring2.0
+        //ColorEnemy(enemy);
+        #endregion
+
+    }
+    #region Coloring2.0
+
+    #endregion
+    private void ColorEnemy(GameObject enemy)
+    {
+    MaterialPropertyBlock block = new MaterialPropertyBlock();
+        enemy.GetComponent<Renderer>().GetPropertyBlock(block);
+        block.SetColor("_Color", Color.red);
+        enemy.GetComponent<Renderer>().SetPropertyBlock(block);
+
     }
 }
