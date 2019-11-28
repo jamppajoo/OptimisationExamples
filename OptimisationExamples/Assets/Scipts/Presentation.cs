@@ -10,8 +10,11 @@ public class Presentation : MonoBehaviour
     //PlayerHealthController reducing health
     //GunController
     //Object material settings (What is a "batch" or "draw call")
-    //GunController2.0
+    //GunController2.0 (Memory control and scene objects)
     //EnemySpawner getting player
     //EnemySpawner coloring
     //EnemyController adding score
+
+    //Quick explanation about ECS
+
 }
