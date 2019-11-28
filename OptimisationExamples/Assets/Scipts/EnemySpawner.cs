@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float maxEnemyMoveSpeed;
 
     public float spawnTimeMin, spawnTimeMax;
+    public bool spawnEnemies = true;
 
     private List<Transform> spawnPoints = new List<Transform>();
     private float spawnTime;
@@ -15,14 +16,45 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        spawnTime -= Time.deltaTime;
-        if (spawnTime <= 0)
+        if (spawnEnemies)
         {
-            //Do not do this
-            Vector3 enemyPos = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + Random.Range(-10,10), 0.85f, GameObject.FindGameObjectWithTag("Player").transform.position.z + Random.Range(-10, 10));
-            SpawnEnemy(enemyPos);
+            spawnTime -= Time.deltaTime;
+            if (spawnTime <= 0)
+            {
+                //Do not do this
+
+                //Spawns enemy to players x and z position added to random factor
+                Vector3 enemyPos = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + Random.Range(-10, 10), 0.85f, GameObject.FindGameObjectWithTag("Player").transform.position.z + Random.Range(-10, 10));
+
+
+                SpawnEnemy(enemyPos);
+
+                #region Spawning2.0
+                //SpawnEnemy(GetNewEnemyPos());
+                #endregion
+            }
         }
     }
+
+    #region Spawning2.0
+
+    private GameObject player;
+    private Vector3 newPos;
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private Vector3 GetNewEnemyPos()
+    {
+        newPos = player.transform.position;
+        newPos.x += Random.Range(-10, 10);
+        newPos.z += Random.Range(-10, 10);
+        return newPos;
+    }
+
+
+    #endregion
 
     //This should be pooled
     private void SpawnEnemy(Vector3 position)
@@ -37,19 +69,19 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.GetComponent<Renderer>().material.color = Color.red;
         #region Coloring2.0
-        //ColorEnemy(enemy);
+        //ColorEnemy2(enemy);
         #endregion
 
     }
     #region Coloring2.0
 
-    #endregion
-    private void ColorEnemy(GameObject enemy)
+    private void ColorEnemy2(GameObject enemy)
     {
-    MaterialPropertyBlock block = new MaterialPropertyBlock();
+        MaterialPropertyBlock block = new MaterialPropertyBlock();
         enemy.GetComponent<Renderer>().GetPropertyBlock(block);
         block.SetColor("_Color", Color.red);
         enemy.GetComponent<Renderer>().SetPropertyBlock(block);
 
     }
+    #endregion
 }

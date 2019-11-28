@@ -9,23 +9,11 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed = 10;
 
     private Vector3 movementDirection = Vector3.zero;
-    private Rigidbody myRB;
-    
-
-
-    private void Awake()
-    {
-        myRB = gameObject.GetComponent<Rigidbody>();
-        mainCamera = Camera.main;
-    }
 
     void Update()
     {
         movementDirection = Vector3.zero;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+
         if (Input.GetKey(KeyCode.A))
         {
             movementDirection -= gameObject.transform.right;
@@ -61,6 +49,11 @@ public class PlayerController : MonoBehaviour
     //Reducing garbage by making variables just once
     private Vector3 mouseScreenPosition2;
     private Vector3 mouseWorldPosition2;
+    
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+    }
     private void Turning2()
     {
         mouseScreenPosition2= Input.mousePosition;
@@ -74,10 +67,5 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         gameObject.transform.localPosition += new Vector3(movementDirection.x, 0, movementDirection.z) * movementSpeed * Time.deltaTime;
-    }
-
-    private void Jump()
-    {
-        myRB.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
     }
 }
