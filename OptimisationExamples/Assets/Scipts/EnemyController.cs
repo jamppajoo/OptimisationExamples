@@ -22,9 +22,9 @@ public class EnemyController : MonoBehaviour
     {
         Destroy(gameObject);
         //Because we instantiate enemys from prefab, we cant set scoreManager on Inspector
-        scoreManager = GameObject.Find("ScoreManagerText").GetComponent<ScoreManager>();
-        
-        ScoreManager.Instance.AddScore(10);
+        scoreManager = GameObject.Find("ScoreManagerText").GetComponent<ScoreManager>()
+
+        ScoreManager.Instance.AddScore(10)
 
         scoreManager.AddScore(10);
 
