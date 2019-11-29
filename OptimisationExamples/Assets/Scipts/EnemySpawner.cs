@@ -24,13 +24,13 @@ public class EnemySpawner : MonoBehaviour
                 //Do not do this
 
                 //Spawns enemy to players x and z position added to random factor
-                Vector3 enemyPos = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + Random.Range(-10, 10), 0.85f, GameObject.FindGameObjectWithTag("Player").transform.position.z + Random.Range(-10, 10));
+                //Vector3 enemyPos = new Vector3(GameObject.FindGameObjectWithTag("Player").transform.position.x + Random.Range(-10, 10), 0.85f, GameObject.FindGameObjectWithTag("Player").transform.position.z + Random.Range(-10, 10));
 
 
-                SpawnEnemy(enemyPos);
+                //SpawnEnemy(enemyPos);
 
                 #region Spawning2.0
-                //SpawnEnemy(GetNewEnemyPos());
+                SpawnEnemy(GetNewEnemyPos());
                 #endregion
             }
         }
@@ -67,9 +67,10 @@ public class EnemySpawner : MonoBehaviour
             moveSpeed = maxEnemyMoveSpeed;
         enemy.GetComponent<EnemyController>().moveSpeed = moveSpeed;
 
-        enemy.GetComponent<Renderer>().material.color = Color.red;
+        //enemy.GetComponent<Renderer>().material.color = Color.red;
+
         #region Coloring2.0
-        //ColorEnemy2(enemy);
+        ColorEnemy2(enemy);
         #endregion
 
     }

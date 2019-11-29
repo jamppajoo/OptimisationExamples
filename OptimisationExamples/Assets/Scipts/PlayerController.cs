@@ -30,14 +30,14 @@ public class PlayerController : MonoBehaviour
         {
             movementDirection -= gameObject.transform.forward;
         }
-        Turning();
+        Turning2();
         Move();
     }
 
     private void Turning()
     {
         Vector3 mouseScreenPosition = Input.mousePosition;
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3 (mouseScreenPosition.x, mouseScreenPosition.y, Camera.main.transform.position.y));
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseScreenPosition.x, mouseScreenPosition.y, Camera.main.transform.position.y));
         mouseWorldPosition.y = gameObject.transform.position.y;
         gameObject.transform.LookAt(mouseWorldPosition);
     }
@@ -49,14 +49,14 @@ public class PlayerController : MonoBehaviour
     //Reducing garbage by making variables just once
     private Vector3 mouseScreenPosition2;
     private Vector3 mouseWorldPosition2;
-    
+
     private void Awake()
     {
         mainCamera = Camera.main;
     }
     private void Turning2()
     {
-        mouseScreenPosition2= Input.mousePosition;
+        mouseScreenPosition2 = Input.mousePosition;
         mouseWorldPosition2 = mainCamera.ScreenToWorldPoint(new Vector3(mouseScreenPosition2.x, mouseScreenPosition2.y, mainCamera.transform.position.y));
         mouseWorldPosition2.y = gameObject.transform.position.y;
         gameObject.transform.LookAt(mouseWorldPosition2);

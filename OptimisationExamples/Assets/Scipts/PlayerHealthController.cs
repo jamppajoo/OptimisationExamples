@@ -17,12 +17,12 @@ public class PlayerHealthController : MonoBehaviour
         currentHealth = maxHealth;
     }
 
-    private void Update()
-    {
-        healthSlider.value = currentHealth;
-        if (currentHealth <= 0)
-            levelManager.EndGame();
-    }
+    //private void Update()
+    //{
+    //    healthSlider.value = currentHealth;
+    //    if (currentHealth <= 0)
+    //        levelManager.EndGame();
+    //}
 
     #region HealthReduce2.0
     //Update slider value only when something happens, we dont care otherwise
@@ -45,10 +45,10 @@ public class PlayerHealthController : MonoBehaviour
     {
         if(collision.gameObject.transform.tag == "Enemy")
         {
-            currentHealth -= 1f;
+            //currentHealth -= 1f;
 
-          #region HealthReduce2.0
-            //ReduceHealth(1);
+            #region HealthReduce2.0
+            ReduceHealth(1);
             #endregion
 
         }

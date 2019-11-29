@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Presentation : MonoBehaviour
 {
+
     //Dont look at frames, look at milliseconds each frame
+    //60fps 16.6666667ms
+
 
     //PlayerController
     //PlayerHealthController reducing health
@@ -13,6 +16,7 @@ public class Presentation : MonoBehaviour
     //GunController2.0 (Memory control and scene objects)
     //EnemySpawner getting player
     //EnemySpawner coloring
+
     //EnemyController adding score
 
     //Quick explanation about ECS

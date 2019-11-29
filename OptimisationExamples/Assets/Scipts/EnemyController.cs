@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
         scoreManager = GameObject.Find("ScoreManagerText").GetComponent<ScoreManager>();
 
         #region Kindof better way
-        //ScoreManager.Instance.AddScore(10);
+        ScoreManager.Instance.AddScore(10);
         #endregion
 
         scoreManager.AddScore(10);
